@@ -1,0 +1,822 @@
+/*==========================================
+
+  VARIABLES
+
+==========================================*/
+/* WIDTHS */
+/* BREAKPOINTS */
+/* FONTS */
+/* COLOURS */
+/* COLOR ASSIGNMENTS */
+/* TIMINGS */
+/*==========================================
+
+  BREAKPOINTS
+
+==========================================*/
+/*==========================================
+
+  ANIMATIONS
+
+==========================================*/
+@-webkit-keyframes fade-in-left {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-left {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-in-down {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-down {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-out-right {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+@keyframes fade-out-right {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+@-webkit-keyframes fade-out-left {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+@keyframes fade-out-left {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes headersize {
+  0% {
+    height: 100vh;
+  }
+  100% {
+    height: 3rem;
+  }
+}
+@keyframes headersize {
+  0% {
+    height: 100vh;
+  }
+  100% {
+    height: 3rem;
+  }
+}
+@-webkit-keyframes scale-text {
+  100% {
+    font-size: 2rem;
+  }
+}
+@keyframes scale-text {
+  100% {
+    font-size: 2rem;
+  }
+}
+@-webkit-keyframes bg {
+  0% {
+    background-position: bottom -20rem center;
+  }
+  100% {
+    background-position: bottom -0.5rem center;
+  }
+}
+@keyframes bg {
+  0% {
+    background-position: bottom -20rem center;
+  }
+  100% {
+    background-position: bottom -0.5rem center;
+  }
+}
+/*==========================================
+
+  LAYOUT
+
+==========================================*/
+.container, .medium-container {
+  padding: 0 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+.container.container-collapse, .container-collapse.medium-container {
+  padding: 0;
+}
+@media only screen and (min-width: 800px) {
+  .container.container-collapse, .container-collapse.medium-container {
+    padding: 0.2rem;
+  }
+}
+
+.medium-container {
+  max-width: 900px;
+}
+
+/*==========================================
+
+  GENERAL
+
+==========================================*/
+.character, .choose-character li,
+.choose-rival li, .player-character,
+.computer-character, .weapon li, .computer-choice-icon,
+.player-choice-icon {
+  display: inline-block;
+  margin: 0.5rem;
+  border-radius: 100%;
+  background-color: white;
+  border: 5px solid #78d1dc;
+  background-repeat: no-repeat;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  padding: 10px 40px;
+  border: none;
+  background-color: #333;
+  color: #f9f9f9;
+  font-size: 2rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: 0.4s ease-out all;
+  transition: 0.4s ease-out all;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.button.active {
+  background-color: #78d1dc;
+  color: #333;
+}
+@media only screen and (min-width: 800px) {
+  .button.active:hover {
+    color: #333;
+  }
+  .button.active:hover:before, .button.active:hover:after {
+    background-color: #78d1dc;
+  }
+}
+.button:before, .button:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 51%;
+  height: 100%;
+  top: 0;
+  background-color: #f9f9f9;
+  -webkit-transition: 0.4s ease-out all;
+  transition: 0.4s ease-out all;
+}
+.button:before {
+  left: -100%;
+}
+.button:after {
+  right: -100%;
+}
+@media only screen and (min-width: 800px) {
+  .button:hover {
+    color: #333;
+    -webkit-transition: 0.4s ease-out all;
+    transition: 0.4s ease-out all;
+  }
+  .button:hover:before, .button:hover:after {
+    -webkit-transition: 0.4s ease-out all;
+    transition: 0.4s ease-out all;
+  }
+  .button:hover:before {
+    left: 0;
+  }
+  .button:hover:after {
+    right: 0;
+  }
+}
+
+/*==========================================
+
+  BACKGROUNDS
+
+==========================================*/
+.tie {
+  background-color: #f9edc5;
+}
+
+.win {
+  background-color: #ade9dd;
+}
+
+.lose {
+  background-color: #ffcbe2;
+}
+
+.rock {
+  background-image: url("http://hannahch.com/images/rock.svg");
+}
+
+.paper {
+  background-image: url("http://hannahch.com/images/paper.svg");
+}
+
+.scissors {
+  background-image: url("http://hannahch.com/images/scissors.svg");
+}
+
+.character1 {
+  background-image: url("http://hannahch.com/images/character1.svg");
+}
+
+.character2 {
+  background-image: url("http://hannahch.com/images/character2.svg");
+}
+
+.character3 {
+  background-image: url("http://hannahch.com/images/character3.svg");
+}
+
+.robot1 {
+  background-image: url("http://hannahch.com/images/robot1.svg");
+}
+
+.robot2 {
+  background-image: url("http://hannahch.com/images/robot2.svg");
+}
+
+.robot3 {
+  background-image: url("http://hannahch.com/images/robot3.svg");
+}
+
+/*==========================================
+
+  GENERAL
+
+==========================================*/
+html {
+  font-size: 62.5%;
+  min-width: 300px;
+}
+
+body {
+  background-color: #78d1dc;
+  color: white;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 2rem;
+  overflow: hidden;
+}
+body.game-started {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+main {
+  padding-top: 7rem;
+  padding-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+h3 {
+  margin-bottom: 3rem;
+}
+
+/*==========================================
+
+  HEADER
+
+==========================================*/
+.main-header {
+  z-index: 10;
+  padding: 10px 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #333;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+          align-items: center;
+  border-bottom: 1px solid white;
+}
+.main-header h1 {
+  padding: 30px 0;
+}
+.main-header h1 span {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 3rem;
+  -webkit-animation: fade-in-left 0.5s cubic-bezier(0.46, -0.41, 0.3, 1.52) both 0.5s;
+          animation: fade-in-left 0.5s cubic-bezier(0.46, -0.41, 0.3, 1.52) both 0.5s;
+}
+.game-started .main-header h1 span {
+  -webkit-animation: scale-text 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) both 0.2s;
+          animation: scale-text 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) both 0.2s;
+}
+@media only screen and (min-width: 600px) {
+  .main-header h1 span {
+    font-size: 6rem;
+  }
+}
+.main-header h1 span:first-child {
+  font-family: "Luckiest Guy", cursive;
+}
+.main-header h1 span:nth-child(2) {
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+.game-started .main-header h1 span:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.main-header h1 span:last-child {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+  font-family: "Mr Dafoe", cursive;
+}
+.game-started .main-header h1 span:last-child {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.game-started .main-header {
+  -webkit-animation: headersize 0.5s ease-out both 0.5s;
+          animation: headersize 0.5s ease-out both 0.5s;
+}
+.game-started .main-header h1 {
+  padding: 0;
+}
+
+.intro {
+  -webkit-animation: fade-in-left 0.2s ease-out both 1.3s;
+          animation: fade-in-left 0.2s ease-out both 1.3s;
+  margin-bottom: 3rem;
+}
+.game-started .intro {
+  -webkit-animation: fade-out-right 0.5s both 1;
+          animation: fade-out-right 0.5s both 1;
+}
+
+/*==========================================
+
+    STARTER SCREENS
+
+==========================================*/
+.starter-screens {
+  height: 430px;
+  position: relative;
+  width: 100%;
+}
+.starter-screens .button {
+  background-color: #eee1fe;
+  color: #333;
+  margin-bottom: 10px;
+}
+.game-started .starter-screens {
+  -webkit-animation: fade-out-right 0.5s both 0.2s;
+          animation: fade-out-right 0.5s both 0.2s;
+}
+
+.starter-screen {
+  width: 100%;
+  text-align: center;
+  -webkit-transform: translateX(-150%);
+          transform: translateX(-150%);
+  -webkit-transition: 0.4s ease-out all;
+  transition: 0.4s ease-out all;
+}
+.starter-screen.animate-in {
+  -webkit-animation: fade-in-left 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) both;
+          animation: fade-in-left 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) both;
+}
+@media only screen and (min-width: 800px) {
+  .starter-screen ul {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+  }
+}
+.starter-screen li {
+  font-family: "Mr Dafoe", cursive;
+  font-size: 3rem;
+}
+@media only screen and (min-width: 800px) {
+  .starter-screen li {
+    font-size: 5rem;
+  }
+}
+
+.start {
+  -webkit-animation: fade-in-left 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) both 1.4s;
+          animation: fade-in-left 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) both 1.4s;
+  text-align: left;
+}
+
+.choose-character li,
+.choose-rival li {
+  cursor: pointer;
+  -webkit-transition: 0.4s ease-out all;
+  transition: 0.4s ease-out all;
+  width: 10rem;
+  height: 10rem;
+}
+@media only screen and (min-width: 800px) {
+  .choose-character li,
+  .choose-rival li {
+    width: 15rem;
+    height: 15rem;
+  }
+  .choose-character li:hover,
+  .choose-rival li:hover {
+    border-color: #f9f9f9;
+    background-color: #78d1dc;
+    -webkit-transition: 0.4s ease-out all;
+    transition: 0.4s ease-out all;
+  }
+}
+.choose-character span,
+.choose-rival span {
+  font-size: 0;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.player-character,
+.computer-character {
+  width: 7rem;
+  height: 7rem;
+  border-color: #333;
+}
+@media only screen and (min-width: 800px) {
+  .player-character,
+  .computer-character {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+.player-character,
+.computer-character,
+.choose-character li,
+.choose-rival li,
+.player-character li,
+.computer-character li {
+  background-position: center;
+  background-size: 70%;
+}
+
+/*==========================================
+
+  ARENA/PLAY
+
+==========================================*/
+.arena {
+  width: 100%;
+  height: 36rem;
+  background-color: #333;
+  overflow: hidden;
+  position: relative;
+}
+.arena h3 {
+  text-align: center;
+  width: 100%;
+}
+@media only screen and (min-width: 900px) {
+  .arena {
+    border-radius: 0 0 1rem 1rem;
+  }
+}
+
+.weapon,
+.result {
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+          align-items: center;
+  text-align: center;
+  color: #333;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all;
+  transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all;
+}
+
+.result {
+  top: -100%;
+}
+.weapon-chosen .result {
+  top: 0;
+  -webkit-transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all 3s;
+  transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all 3s;
+}
+.result h3 {
+  font-size: 3rem;
+}
+
+.weapon {
+  bottom: 0;
+  background-color: #eee1fe;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+.weapon .weapon-inner {
+  width: 100%;
+}
+.weapon-chosen .weapon {
+  bottom: -100%;
+}
+.weapon h3 {
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
+.weapon ul {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+.weapon li {
+  width: 24vw;
+  height: 24vw;
+  max-width: 200px;
+  max-height: 200px;
+  cursor: pointer;
+  -webkit-transition: 0.4s ease-out all;
+  transition: 0.4s ease-out all;
+  margin: 1rem;
+  background-size: 70%;
+}
+.game-started .weapon li {
+  -webkit-animation: bg 0.3s ease-out both 1s;
+          animation: bg 0.3s ease-out both 1s;
+}
+.game-started .weapon li:nth-child(2) {
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+.game-started .weapon li:nth-child(3) {
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
+}
+@media only screen and (min-width: 800px) {
+  .weapon li {
+    margin: 0 4rem;
+  }
+  .weapon li:hover {
+    background-color: #78d1dc;
+    border-color: #f9f9f9;
+    -webkit-transition: 0.4s ease-out all;
+    transition: 0.4s ease-out all;
+  }
+}
+.weapon span {
+  font-size: 0;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.computer-chip,
+.player-chip {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+.computer-chip h3,
+.player-chip h3 {
+  margin-bottom: 2rem;
+}
+@media only screen and (min-width: 800px) {
+  .computer-chip h3,
+  .player-chip h3 {
+    font-size: 2.5rem;
+  }
+}
+.computer-chip span,
+.player-chip span {
+  font-size: 0;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+@media only screen and (min-width: 800px) {
+  .computer-chip,
+  .player-chip {
+    width: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+
+.computer-chip {
+  right: -100%;
+  -webkit-transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all;
+  transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all;
+  bottom: 2rem;
+}
+@media only screen and (min-width: 800px) {
+  .computer-chip {
+    top: 50%;
+    bottom: auto;
+  }
+}
+.weapon-chosen .computer-chip {
+  right: 0;
+  -webkit-transition: 0.8s cubic-bezier(0.46, -0.41, 0.3, 1.52) all 1.5s;
+  transition: 0.8s cubic-bezier(0.46, -0.41, 0.3, 1.52) all 1.5s;
+}
+
+.player-chip {
+  left: -100%;
+  -webkit-transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all;
+  transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all;
+  top: 2rem;
+}
+@media only screen and (min-width: 800px) {
+  .player-chip {
+    top: 50%;
+  }
+}
+.weapon-chosen .player-chip {
+  left: 0;
+  -webkit-transition: 0.8s cubic-bezier(0.46, -0.41, 0.3, 1.52) all 0.6s;
+  transition: 0.8s cubic-bezier(0.46, -0.41, 0.3, 1.52) all 0.6s;
+}
+
+.computer-choice-icon,
+.player-choice-icon {
+  width: 10rem;
+  height: 10rem;
+  display: inline-block;
+  background-position: bottom -0.5rem center;
+  background-size: 60%;
+}
+@media only screen and (min-width: 1200px) {
+  .computer-choice-icon,
+  .player-choice-icon {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+/*==========================================
+
+  PLAYERS
+
+==========================================*/
+.players {
+  margin-bottom: 3rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  color: #333;
+}
+.players span {
+  font-size: 2rem;
+  color: #333;
+}
+
+.player-info {
+  text-align: center;
+  padding: 0 20px;
+}
+
+.round-wrap {
+  padding: 20px;
+  border-bottom: 1px solid #f9f9f9;
+  background-color: #333;
+}
+@media only screen and (min-width: 900px) {
+  .round-wrap {
+    border-radius: 1rem 1rem 0 0;
+  }
+}
+
+/*==========================================
+
+  END SCREEN
+
+==========================================*/
+.end-screen {
+  position: fixed;
+  right: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all;
+  transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  z-index: 20;
+  text-align: center;
+  color: #333;
+}
+.end-screen h2 {
+  margin-bottom: 1rem;
+  font-size: 5rem;
+}
+.end-screen h3 {
+  margin-bottom: 2.5rem;
+}
+.end-screen p {
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+.end-game .end-screen {
+  right: 0;
+  -webkit-transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all 5s;
+  transition: 1s cubic-bezier(0.46, -0.41, 0.3, 1.52) all 5s;
+}
+
+.rounds-end-screen {
+  margin-bottom: 5rem;
+}
+@media only screen and (min-width: 800px) {
+  .rounds-end-screen ul {
+    display: -webkit-box;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.rounds-end-screen li {
+  margin-bottom: 1rem;
+}

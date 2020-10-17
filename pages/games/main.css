@@ -1,0 +1,94 @@
+.games{
+	display: flex;
+	/*justify-content: space-around;*/
+	flex-direction: column;
+}
+img{
+	width: 600px;
+	height: 300px;
+	margin-top: -10px;
+	border: 5px solid #0E2453;
+	border-radius: 20px;
+	/*padding: 20px;*/
+}
+a{
+	/*position: absolute;*/
+	/*background: blue;*/
+	/*margin top: 100px;*/
+}
+.line1{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.line2{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line3{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line4{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line5{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line6{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line7{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line8{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line9{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line10{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line11{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line12{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line13{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line14{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.line15{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}

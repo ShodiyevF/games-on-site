@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Color Collision</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="start-screen">
+	<div class="game-data">
+		<span class="name"><span>Color</span> <span>Collision</span></span>
+	</div>
+	<span class="info">
+		<span class="highlight _1">FOCUS</span> is the weapon.
+		Don't make the wrong move.
+		Tap / click to change the color and save the central balls.
+		Because if the central balls don't stay alive <span class="highlight _2">YOU DIE</span>.
+		Better play <span class="highlight _3">SAFE</span> and make a new highscore.
+	</span>
+	<button class="btn play">PLAY</button>
+</div>
+
+<span class="retry-text hide" data-splitting>Game Over!</span>
+<button class="retry-btn hide" data-splitting>RETRY</button>
+<canvas data-canvas></canvas>
+
+<!-- partial -->
+  <script src='https://unpkg.com/splitting/dist/splitting.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

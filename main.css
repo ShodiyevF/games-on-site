@@ -1,0 +1,76 @@
+*{
+	font-family: tahoma;
+}
+body{
+	/*background: red;*/
+}
+header{
+	/*background: blue;*/
+}
+.head_1{
+	display: flex;
+	justify-content: center;
+}
+.head_1_1 .head_1_1_1{
+	/*background: purple;*/
+	font-size: 30px;
+	transition: all .2s ease-in-out;
+}
+.head_1_1 .head_1_1_2{
+	display: flex;
+	justify-content: center;
+	transition: all .2s ease-in-out;
+	/*background: yellow;*/
+	padding-right: -10;
+	padding-left: -10;
+	font-size: 30px;
+}
+.cont_1{
+	height: 430px;
+	/*background: green;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cont_1_1_logo{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cont_1_1_logo img{
+	width: 600px;
+	height: 600px;
+	display: flex;
+	margin-top: -150px;
+	/*margin-left: 1px;*/
+	/*background: purple;*/
+}
+.cont_1_1_games{
+	position: absolute;
+	font-size: 70px;
+	margin-left: -430px;
+	text-decoration: none;
+	border: 2px solid #3578B1;
+	border-radius: 20px;
+	color: #2F054E;
+	padding: 20px;
+	transition: all .2s ease-in-out;
+}
+
+.cont_1_1_games:hover{
+	background: #2F054E;
+	color: #3578B1;
+}
+.foot_1_1{
+	display: flex;
+	justify-content: space-between;
+}
+.foot_1_1 a{
+	font-size: 20px;
+	text-decoration: none;
+	color: #3578B1;
+	border: 2px solid #2F054E;
+	border-radius: 20px;
+	padding: 20px;
+	transition: all .2s ease-in-out;
+}

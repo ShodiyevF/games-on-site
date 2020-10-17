@@ -1,0 +1,903 @@
+/*==========================================
+
+  VARIABLES
+
+==========================================*/
+/* WIDTHS */
+$max-width: 1400px;
+$med-width: 900px;
+
+/* BREAKPOINTS */
+$screenS: 600px;
+$screenM: 800px;
+$screenL: 1200px;
+$ml: 1000px;
+$border-radius-width: 900px;
+
+/* FONTS */
+$rock: 'Luckiest Guy', cursive;
+$paper: 'Open Sans Condensed', sans-serif;
+$scissors: 'Mr Dafoe', cursive;
+
+$body-font: $paper;
+
+/* COLOURS */
+$dark-grey: #333;
+$white: #f9f9f9;
+$duck-blue: #78d1dc;
+$purple: #eee1fe;
+$yellow: #f9edc5;
+$pink: #ffcbe2;
+$green: #ade9dd;
+
+/* COLOR ASSIGNMENTS */
+$body-bg: $duck-blue;
+$header-bg: $dark-grey;
+$border: $duck-blue;
+$border-dark: $dark-grey;
+$arena-bg: $dark-grey;
+$button: $dark-grey;
+$footer: $dark-grey;
+
+/* TIMINGS */
+$cubic: cubic-bezier(0.46,-0.41,0.3,1.52);
+$transition: 0.4s ease-out all;
+$cubic-transition: 1s $cubic all;
+
+/*==========================================
+
+  BREAKPOINTS
+
+==========================================*/
+@mixin bp($point){
+  // "less than XS" mobile only (saves having to zero out properties on larger breakpoints)
+  @if $point == lt-xs {
+    @media only screen and (max-width: $screenXS) {
+      @content;
+    }
+  }
+  @else if $point == lt-s {
+    @media only screen and (max-width: $screenS) {
+      @content;
+    }
+  }
+  @else if $point == lt-m {
+    @media only screen and (max-width: $screenM) {
+      @content;
+    }
+  }
+  @else if $point == lt-l {
+    @media only screen and (max-width: $screenL) {
+      @content;
+    }
+  }
+  // Extra small devices (smart-phones from 480px)
+  @else if $point == xs {
+    @media only screen and (min-width: $screenXS) {
+      @content;
+    }
+  }
+  
+  // Small devices (tablets, 768px and up)
+  @else if $point == s {
+    @media only screen and (min-width: $screenS) {
+      @content;
+    }
+  }
+  @else if $point == s-m {
+    @media only screen and (min-width: $screenS) and (max-width: $screenM) {
+      @content;
+    }
+  }
+  @else if $point == m {
+    // Medium devices (desktops, 992px and up)
+    @media only screen and (min-width: $screenM) {
+      @content;
+    }
+  }
+  @else if $point == m-l {
+    // Medium to Large only
+    @media only screen and (min-width: $screenM) and (max-width: $screenL) {
+      @content;
+    }
+  }
+  @else if $point == l {
+    // Large devices (large desktops, 1200px and up)
+    @media only screen and (min-width: $screenL) {
+      @content;
+    }
+  }
+  @else if $point == xl {
+    // Large devices (large desktops, 1350px and up)
+    @media only screen and (min-width: $screenXL) {
+      @content;
+    }
+  }
+  @else if $point == landscape {
+    @media only screen and (orientation:landscape) {
+      @content;
+    }
+  }
+  @else if $point == portrait {
+    @media only screen and (orientation:portrait) {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and (min-width: $point) {
+      @content;
+    }
+  }
+}
+
+@mixin hide-text(){
+  font-size:0;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+/*==========================================
+
+  ANIMATIONS
+
+==========================================*/
+@keyframes fade-in-left {
+
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+
+@keyframes fade-in-down {
+
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+
+@keyframes fade-out-right {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+}
+
+@keyframes fade-out-left {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+}
+
+@keyframes headersize {
+
+    0% {
+        height: 100vh;
+    }
+
+    100% {
+        height: 3rem;
+    }
+
+}
+
+@keyframes scale-text {
+
+    100% {
+        font-size: 2rem;
+    }
+
+}
+
+@keyframes bg {
+
+    0% {
+        background-position: bottom -20rem center;
+    }
+
+    100% {
+        background-position: bottom -0.5rem center;
+    }
+
+}
+
+/*==========================================
+
+  LAYOUT
+
+==========================================*/
+.container {
+    padding: 0 2rem;
+    max-width: $med-width;
+    margin: 0 auto;
+    width: 100%;
+
+    &.container-collapse {
+        padding: 0;
+
+        @include bp(m) {
+            padding: 0.2rem;
+        }
+    }
+
+}
+
+.medium-container {
+    @extend .container;
+    max-width: $med-width;
+}
+
+/*==========================================
+
+  GENERAL
+
+==========================================*/
+.character {
+    display: inline-block;
+    margin: 0.5rem;
+    border-radius: 100%;
+    background-color: white;
+    border: 5px solid $border;
+    background-repeat: no-repeat;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    padding: 10px 40px;
+    border: none;
+    background-color: $button;
+    color: $white;
+    font-size: 2rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: $transition;
+    overflow: hidden;
+    border-radius: 5px;
+
+    &.active {
+        background-color: $duck-blue;
+        color: $dark-grey;
+
+        @include bp(m) {
+
+            &:hover {
+                color: $dark-grey;
+
+                &:before,
+                &:after {
+                    background-color: $duck-blue;
+                }
+            }
+        }
+    }
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 51%;
+        height: 100%;
+        top: 0;
+        background-color: $white;
+        transition: $transition;
+    }
+
+    &:before {
+        left: -100%;
+    }
+
+    &:after {
+        right: -100%;
+    }
+
+    @include bp(m) {
+
+        &:hover {
+            color: $dark-grey;
+            transition: $transition;
+
+            &:before,
+            &:after {
+                transition: $transition;
+            }
+
+            &:before {
+                left: 0;
+            }
+
+            &:after {
+                right: 0;
+            }
+        }
+    }
+
+}
+
+/*==========================================
+
+  BACKGROUNDS
+
+==========================================*/
+.tie {
+    background-color: $yellow;
+}
+
+.win {
+    background-color: $green;
+}
+
+.lose {
+    background-color: $pink;
+}
+
+.rock {
+    background-image: url('http://hannahch.com/images/rock.svg');
+}
+
+.paper {
+    background-image: url('http://hannahch.com/images/paper.svg');
+}
+
+.scissors {
+    background-image: url('http://hannahch.com/images/scissors.svg');
+}
+
+.character1 {
+    background-image: url('http://hannahch.com/images/character1.svg');
+}
+
+.character2 {
+    background-image: url('http://hannahch.com/images/character2.svg');
+}
+
+.character3 {
+    background-image: url('http://hannahch.com/images/character3.svg');
+}
+
+.robot1 {
+    background-image: url('http://hannahch.com/images/robot1.svg');
+}
+
+.robot2 {
+    background-image: url('http://hannahch.com/images/robot2.svg');
+}
+
+.robot3 {
+    background-image: url('http://hannahch.com/images/robot3.svg');
+}
+
+
+/*==========================================
+
+  GENERAL
+
+==========================================*/
+html {
+    font-size: 62.5%;
+    min-width: 300px;
+}
+
+body {
+    background-color: $body-bg;
+    color: white;
+    font-family: $body-font;
+    font-size: 2rem;
+    overflow: hidden;
+
+    &.game-started {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+main {
+    padding-top: 7rem;
+    padding-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+h3 {
+    margin-bottom: 3rem;
+}
+
+/*==========================================
+
+  HEADER
+
+==========================================*/
+.main-header {
+    z-index: 10;
+    padding: 10px 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: $header-bg;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid white;
+
+    h1 {
+        padding: 30px 0;
+
+        span {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 3rem;
+            animation: fade-in-left 0.5s $cubic both 0.5s;
+
+            .game-started & {
+                animation: scale-text 1s $cubic both 0.2s;
+            }
+
+            @include bp(s) {
+                font-size: 6rem;
+            }
+
+            &:first-child {
+                font-family: $rock;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.7s;
+                font-family: $paper;
+
+
+                .game-started & {
+                    animation-delay: 0.2s;
+                }
+            }
+
+            &:last-child {
+                animation-delay: 0.9s;
+                font-family: $scissors;
+
+                .game-started & {
+                    animation-delay: 0.2s;
+                }
+            }
+
+        }
+    }
+
+    .game-started & {
+        animation: headersize 0.5s ease-out both 0.5s;
+
+        h1 {
+            padding: 0;
+        }
+    }
+
+}
+
+.intro {
+    animation: fade-in-left 0.2s ease-out both 1.3s;
+    margin-bottom: 3rem;
+
+    .game-started & {
+        animation: fade-out-right 0.5s both 1;
+    }
+}
+
+/*==========================================
+
+    STARTER SCREENS
+
+==========================================*/
+.starter-screens {
+    height: 430px;
+    position: relative;
+    width: 100%;
+
+    .button {
+        background-color: $purple;
+        color: $dark-grey;
+        margin-bottom: 10px;
+    }
+
+    .game-started & {
+        animation: fade-out-right 0.5s both 0.2s;
+    }
+}
+
+.starter-screen {
+    width: 100%;
+    text-align: center;
+    transform: translateX(-150%);
+    transition: $transition;
+
+    &.animate-in {
+        animation: fade-in-left 1s $cubic both;
+    }
+
+    ul {
+
+        @include bp(m) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+    }
+
+    li {
+        font-family: $scissors;
+        font-size: 3rem;
+
+        @include bp(m) {
+            font-size: 5rem;
+        }
+    }
+}
+
+.start {
+    animation: fade-in-left 1s $cubic both 1.4s;
+    text-align: left;
+}
+
+.choose-character,
+.choose-rival {
+
+    li {
+        @extend .character;
+        cursor: pointer;
+        transition: $transition;
+        width: 10rem;
+        height: 10rem;
+
+        @include bp(m) {
+            width: 15rem;
+            height: 15rem;
+
+            &:hover {
+                border-color: $white;
+                background-color: $duck-blue;
+                transition: $transition;
+            }
+
+        }
+    }
+
+    span {
+        @include hide-text();
+    }
+
+}
+
+.player-character,
+.computer-character {
+    @extend .character;
+    width: 7rem;
+    height: 7rem;
+    border-color: $border-dark;
+
+    @include bp(m) {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+.player-character,
+.computer-character,
+.choose-character li,
+.choose-rival li,
+.player-character li,
+.computer-character li {
+
+    background-position: center;
+    background-size: 70%;
+
+}
+
+/*==========================================
+
+  ARENA/PLAY
+
+==========================================*/
+.arena {
+    width: 100%;
+    height: 36rem;
+    background-color: $arena-bg;
+    overflow: hidden;
+    position: relative;
+
+    h3 {
+        text-align: center;
+        width: 100%;
+    }
+
+    @include bp($border-radius-width) {
+        border-radius: 0 0 1rem 1rem;
+    }
+}
+
+.weapon,
+.result {
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    color: $dark-grey;
+    justify-content: center;
+    transition: $cubic-transition;
+}
+
+.result {
+    top: -100%;
+
+    .weapon-chosen & {
+        top: 0;
+        transition: 1s $cubic all 3s;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+
+}
+
+.weapon {
+    bottom: 0;
+    background-color: $purple;
+    transition-delay: 0.2s;
+
+    .weapon-inner {
+        width: 100%;
+    }
+
+    .weapon-chosen & {
+        bottom: -100%;
+    }
+
+    h3 {
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+    }
+
+    ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    li {
+        @extend .character;
+        width: 24vw;
+        height: 24vw;
+        max-width: 200px;
+        max-height: 200px;
+        cursor: pointer;
+        transition: $transition;
+        margin: 1rem;
+        background-size: 70%;
+
+        .game-started & {
+            animation: bg 0.3s ease-out both 1s;
+
+            &:nth-child(2) {
+                animation-delay: 1.2s
+            }
+
+            &:nth-child(3) {
+                animation-delay: 1.4s
+            }
+        }
+
+        @include bp(m) {
+            margin: 0 4rem;
+
+            &:hover {
+                background-color: $duck-blue;
+                border-color: $white;
+                transition: $transition;
+            }
+
+        }
+
+    }
+
+    span {
+        @include hide-text();
+    }
+
+}
+
+.computer-chip,
+.player-chip {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+
+    h3 {
+        margin-bottom: 2rem;
+
+        @include bp(m) {
+            font-size: 2.5rem;
+        }
+    }
+
+    span {
+        @include hide-text();
+    }
+
+    @include bp(m) {
+        width: 50%;
+        transform: translateY(-50%);
+    }
+
+}
+
+.computer-chip {
+    right: -100%;
+    transition: $cubic-transition;
+    bottom: 2rem;
+
+    @include bp(m) {
+        top: 50%;
+        bottom: auto;
+    }
+
+    .weapon-chosen & {
+        right: 0;
+        transition: 0.8s $cubic all 1.5s;
+    }
+}
+
+.player-chip {
+    left: -100%;
+    transition: $cubic-transition;
+    top: 2rem;
+
+    @include bp(m) {
+        top: 50%;
+    }
+
+    .weapon-chosen & {
+        left: 0;
+        transition: 0.8s $cubic all 0.6s;
+    }
+}
+
+.computer-choice-icon,
+.player-choice-icon {
+    @extend .character;
+    width: 10rem;
+    height: 10rem;
+    display: inline-block;
+    background-position: bottom -0.5rem center;
+    background-size: 60%;
+
+    @include bp(l) {
+        width: 20rem;
+        height: 20rem;
+    }
+}
+
+/*==========================================
+
+  PLAYERS
+
+==========================================*/
+.players {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $dark-grey;
+
+    span {
+        font-size: 2rem;
+        color: $dark-grey;
+    }
+}
+
+.player-info {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.round-wrap {
+    padding: 20px;
+    border-bottom: 1px solid $white;
+    background-color: $dark-grey;
+
+    @include bp($border-radius-width) {
+        border-radius: 1rem 1rem 0 0;
+    }
+
+}
+
+/*==========================================
+
+  END SCREEN
+
+==========================================*/
+.end-screen {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: $cubic-transition;
+    display: flex;
+    align-items: center;
+    z-index: 20;
+    text-align: center;
+    color: $dark-grey;
+
+    h2 {
+        margin-bottom: 1rem;
+        font-size: 5rem;
+    }
+
+    h3 {
+        margin-bottom: 2.5rem;
+    }
+
+    p {
+        margin-bottom: 3rem;
+        font-size: 2rem;
+    }
+
+    .end-game & {
+        right: 0;
+        transition: 1s $cubic all 5s;
+    }
+}
+
+.rounds-end-screen {
+    margin-bottom: 5rem;
+
+    ul {
+
+        @include bp(m) {
+            display: flex;
+            justify-content: space-around;
+        }
+
+    }
+
+    li {
+        margin-bottom: 1rem;
+    }
+
+}
